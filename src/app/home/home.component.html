@@ -1,0 +1,50 @@
+<h2>Đây là Home Component</h2>
+<h2>Đây là {{ name }}</h2>
+<h2>{{ age }} xuân xanh</h2>
+
+<!-- <input value="{{name}}">
+<br>
+<input [value]="name"> -->
+<br>
+<input [(ngModel)]="age" type="text">
+<br>
+<!-- <h2 *ngIf="age <= 20">Bạn quá trẻ</h2>
+<h2 *ngIf="age > 20">Bạn quá già</h2> -->
+<div *ngIf="age <= 20; then young; else old"></div>
+<ng-template #young><h2> {{name}} quá trẻ</h2></ng-template>
+<ng-template #old><h2> {{name}} quá già</h2></ng-template>
+
+<br>
+<button (click)="resetName()">Reset Name</button>
+<br>
+<h2>Danh sách người yêu cũ</h2>
+<table style="width:50%">
+  <tr>
+    <th>Thứ tự</th>
+    <th>Tên</th>
+    <th>Năm sinh</th>
+    <th>Checked ?</th>
+  </tr>
+  <tr *ngFor="let item of oldLove, let i = index">
+    <td>{{(i+1)}}</td>
+    <td>{{item.name}}</td>
+    <td [ngClass]="{'red-text': item.year > 2000}">{{item.year}}</td>
+    <td >{{item.checked | check | uppercase}}</td>
+  </tr>
+</table>
+
+<br><br><br>
+
+<div>
+  <select name="" id="city" (change)="changeCity($event)">
+    <option *ngFor="let data of vietNamData" value="{{data.city}}">{{data.city}}</option>
+  </select>
+
+  <br><br><br>
+  <select name="" id="districts" >
+    <option *ngFor="let district of districts" value="{{district}}">{{district}}</option>
+  </select>
+</div>
+<div>{{counter}}</div>
+<div>{{counterBinhPhuong}}</div>
+

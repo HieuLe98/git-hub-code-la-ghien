@@ -1,0 +1,13 @@
+<p>about works!</p>
+<ul ngSwitch = "{{loginName}}">
+  <li *ngSwitchCase="'user'">
+    User
+  </li>
+  <li *ngSwitchCase="'admin'">
+    Admin
+    <app-home></app-home>
+  </li>
+  <li *ngSwitchDefaul>Please choose login name</li>
+</ul>
+<div>{{counter}}</div>
+<div>{{counterBinhPhuong}}</div>
